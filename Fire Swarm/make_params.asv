@@ -1,0 +1,25 @@
+function params = make_params()
+% Output:
+%   params (struct) - simulation-wide settings
+%     .rows        - number of grid rows
+%     .cols        - number of grid columns
+%     .dt          - time step size (seconds, logical)
+%     .decay_rate  - intensity subtracted from every cell each step [0,1]
+%     .spread_rate - fraction of a burning cell's intensity passed to
+%                    each orthogonal neighbor per step [0,1]
+%     .water_power - intensity removed by one water drop (set to 1 = full
+%                    extinguish, lower for partial suppression)
+%     .time_limit  - maximum number of steps before the sim is forced to stop
+%     .fire_thresh - cells below this value are considered "out" (0.1 per spec)
+%     .seed        - RNG seed; set [] to skip seeding (deterministic by default)
+
+params.rows        = 30;          % grid height (cells)
+params.cols        = 30;          % grid width  (cells)
+params.dt          = 1;           % logical time step (arbitrary units)
+params.decay_rate  = 0.02;        % global cooling per step - tune this
+params.spread_rate = 0.05;        % orthogonal spread fraction per step - tune this
+params.water_power = 1.0;         % sets cell intensity to 0 immediately
+params.time_limit  = 500;         % hard cap on simulation steps
+params.fire_thresh = 0.1;         % "out" threshold per spec
+params.seed        = 42;          % set [] to disable seeding
+end
