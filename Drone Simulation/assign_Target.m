@@ -5,9 +5,9 @@ function target = assign_Target(fire)
 
     for ii = 1:rows
         for jj = 1:cols
-            if fire.intensity(i,j) > maxVal
-                maxVal = fire.intensity(i,j);
-                target = [i,j];
+            if fire.intensity(ii,jj) > maxVal
+                maxVal = fire.intensity(ii,jj);
+                target = [ii,jj];
             end
         end
     end
