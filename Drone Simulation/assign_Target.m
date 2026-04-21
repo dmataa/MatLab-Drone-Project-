@@ -2,7 +2,6 @@ function target = assign_Target(fire)
     [rows, cols] = size(fire.intensity);
     maxVal = fire.intensity(1,1);
     target = [1,1];
-
     for ii = 1:rows
         for jj = 1:cols
             if fire.intensity(ii,jj) > maxVal
@@ -11,7 +10,7 @@ function target = assign_Target(fire)
             end
         end
     end
-    if maxVal < 0.1
-        target = [];
+    if maxVal == 0
+    target = [];
     end
 end
